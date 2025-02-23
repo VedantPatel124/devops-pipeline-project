@@ -8,7 +8,8 @@ pipeline {
         }
         stage('Build Frontend') {
             steps {
-                sh 'export NODE_OPTIONS=--openssl-legacy-provider && npm run build'
+		dir('frontend') {  // Navigate to the frontend directory
+            		sh 'export NODE_OPTIONS=--openssl-legacy-provider && npm install && npm run build'
             }
         }
         stage('Deploy Frontend') {
