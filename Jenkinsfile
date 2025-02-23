@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main' url: 'https://github.com/VedantPatel124/devops-pipeline-project.git'
+                git branch: 'main', url: 'https://github.com/VedantPatel124/devops-pipeline-project.git'
             }
         }
         stage('Build Frontend') {
