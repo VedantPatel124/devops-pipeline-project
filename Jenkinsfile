@@ -19,10 +19,15 @@ pipeline {
             }
         }
         stage('Build Backend') {
-            steps {
-                sh 'cd backend && pip3 install -r requirements.txt'
-            }
-        }
+	    steps {
+		sh '''
+      		cd backend
+		python3 -m venv venv
+  		source venv/bin/activate
+        	pip install -r requirements.txt
+        	'''
+    	    }
+	}
         stage('Restart Backend') {
             steps {
                 sh 'sudo systemctl restart flask-api'
