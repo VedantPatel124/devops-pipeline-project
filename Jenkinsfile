@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Deploy Frontend') {
             steps {
-		sh 'cp -r frontend/build/asset-manifest.json frontend/build/index.html frontend/build/static /var/www/html/'
+		sudo cp -r frontend/build/asset-manifest.json frontend/build/index.html frontend/build/static /var/www/html/
             }
         }
         stage('Build Backend') {
