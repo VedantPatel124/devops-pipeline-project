@@ -14,10 +14,14 @@ pipeline {
             }
         }
         stage('Deploy Frontend') {
-            steps {
-		sudo cp -r frontend/build/asset-manifest.json frontend/build/index.html frontend/build/static /var/www/html/
-            }
-        }
+	    steps {
+		script {
+			sh '''
+   			sudo cp -r frontend/build/asset-manifest.json frontend/build/index.html frontend/build/static /var/www/html/
+            		'''
+        		}
+    		}
+	}
         stage('Build Backend') {
 	    steps {
 		sh '''
